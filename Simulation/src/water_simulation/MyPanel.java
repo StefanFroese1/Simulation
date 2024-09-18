@@ -14,13 +14,17 @@ public class MyPanel extends JPanel implements ActionListener{
 		this.setBackground(Color.cyan);
 		timer = new Timer(50, this);
 		timer.start();
-		//test
 		
+		
+	}
+	public void paint(Graphics g) {
+		super.paint(g);
+		Graphics2D g2D = (Graphics2D) g;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		repaint();
 		
 	}
 
