@@ -11,6 +11,7 @@ import javax.swing.*;
 public class MyPanel extends JPanel implements ActionListener{
 	
 	private Timer timer;
+	private Water w = new Water(0, 0);
 	private int gridWidth = 160;
 	private int gridHight = 90;
 	private int pixelSize = 8;
@@ -27,7 +28,7 @@ public class MyPanel extends JPanel implements ActionListener{
 		Graphics2D g2D = (Graphics2D) g;
 		for (int i=0;i<gridWidth;i++) {
 			for (int i2=0;i2<gridHight;i2++) {
-				switch(Water.getPixel(i,i2)) {
+				switch(w.getPixel(i,i2)) {
 					case 0: g2D.setColor(Color.cyan); break;
 					case 1: g2D.setColor(Color.blue); break;
 					case 2: g2D.setColor(Color.green); break;
