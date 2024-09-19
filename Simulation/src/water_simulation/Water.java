@@ -1,4 +1,5 @@
 package water_simulation;
+//import java.math.;
 
 public class Water {
 
@@ -15,6 +16,23 @@ public class Water {
 	}
 	public int GetTide() {
 		return tide;
+	}
+	public void SetWave(int in) {
+		wave=in;
+	}
+	public void SetTide(int in) {
+		tide=in;
+	}
+	public int GetPixel(int x,int y) {
+		
+		
+		
+		if(display[x][y]>0) {
+			return 1;
+		}else {
+			return 0;
+		}
+		
 	}
 	
 }
