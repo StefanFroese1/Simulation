@@ -14,7 +14,7 @@ public class Buildings {
 	
 	public int GetDamage(int tide,int wave){
 		
-		damage=(height+elevation)-tide;
+		damage=tide/(height+elevation);
 		
 		return damage;
 	}
