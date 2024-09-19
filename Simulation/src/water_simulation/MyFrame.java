@@ -1,5 +1,7 @@
 package water_simulation;
 
+import java.awt.Frame;
+
 import javax.swing.JFrame;
 
 public class MyFrame extends JFrame{
@@ -13,6 +15,8 @@ public class MyFrame extends JFrame{
 		this.setUndecorated(true);
 		this.add(panel);
 		this.pack();
+		this.setExtendedState(Frame.MAXIMIZED_BOTH);
+		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
 
