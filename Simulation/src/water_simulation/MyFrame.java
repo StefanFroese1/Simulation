@@ -11,8 +11,7 @@ public class MyFrame extends JFrame{
 		panel = new MyPanel();
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setResizable(false);
-		this.setUndecorated(true);
+		this.setResizable(true);
 		this.add(panel);
 		this.pack();
 		this.setExtendedState(Frame.MAXIMIZED_BOTH);
