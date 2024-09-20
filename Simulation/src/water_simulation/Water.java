@@ -24,14 +24,16 @@ public class Water {
 		tide=in;
 	}
 	public int GetPixel(int x,int y) {
-		
-		
-		
+		// how on earth do I map out a wave ?
+		// every tick, move all water left, clear if touching land, make the right move up or down.		
 		if(display[x][y]>0) {
 			return 1;
 		}else {
 			return 0;
 		}
+		
+	}
+	public void WaveTick(int tick) {
 		
 	}
 	
