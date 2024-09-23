@@ -58,11 +58,11 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(running) {
-			w.SetTide(slider1);
-			w.SetWave(slider2);
+			w.SetTide(slider1/12);
+			w.SetWave(slider2/100);
 			//w.doTick
-			repaint();
 		}
+		repaint();
 	}
 	@Override
 	public void mouseClicked(MouseEvent e) {
