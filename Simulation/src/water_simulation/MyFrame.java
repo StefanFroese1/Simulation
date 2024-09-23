@@ -16,6 +16,8 @@ public class MyFrame extends JFrame{
 		this.pack();
 		this.setExtendedState(Frame.MAXIMIZED_BOTH);
 		this.setLocationRelativeTo(null);
+		this.addMouseListener(panel);
+		this.addKeyListener(panel);
 		this.setVisible(true);
 	}
 
