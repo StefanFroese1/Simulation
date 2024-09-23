@@ -22,7 +22,7 @@ public class MyPanel extends JPanel implements ActionListener{
 	MyPanel(){
 		this.setBackground(Color.cyan);
 		tab = new ImageIcon("Assets/Tab.png").getImage();
-		slider = new ImageIcon("Assets/Slider.png").getImage();
+		slider = new ImageIcon("Assets/Sliders.png").getImage();
 		timer = new Timer(50, this);
 		timer.start();
 		
@@ -31,7 +31,6 @@ public class MyPanel extends JPanel implements ActionListener{
 	public void paint(Graphics g) {
 		super.paint(g);
 		Graphics2D g2D = (Graphics2D) g;
-		g2D.drawImage(slider, 0, 0, 100, 20, null);
 		for (int i=0;i<gridWidth;i++) {
 			for (int i2=0;i2<gridHight;i2++) {
 				switch(w.GetPixel(i,i2)) {
@@ -44,6 +43,8 @@ public class MyPanel extends JPanel implements ActionListener{
 				g2D.fillRect(i*pixelSize, i2*pixelSize, pixelSize, pixelSize);
 			}
 		}
+		g2D.drawImage(slider, 0, 0, 1000, 200, null);
+		g2D.drawImage(tab, 470, 10, 60, 80, null);
 	}
 
 	@Override
