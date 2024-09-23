@@ -20,17 +20,16 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 	private Image slider;
 	private Image tab;
 	private int slider1, slider2;
-	private int mouseX, mouseY;
 	private int gridWidth = 160;
 	private int gridHight = 90;
 	private int pixelSize = 10;
+	private boolean running;
 	
 	MyPanel(){
 		this.setBackground(Color.cyan);
+		running = false;
 		slider1 = 500;
 		slider2 = 500;
-		mouseX = 0;
-		mouseY = 0;
 		tab = new ImageIcon("Assets/Tab.png").getImage();
 		slider = new ImageIcon("Assets/Sliders.png").getImage();
 		timer = new Timer(50, this);
@@ -58,8 +57,12 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		repaint();
-		
+		if(running) {
+			w.SetTide(slider1);
+			w.SetWave(slider2);
+			//w.doTick
+			repaint();
+		}
 	}
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -97,8 +100,13 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 	}
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+		if(e.getKeyCode() == 32) {
+			if(running) {
+				running = false;
+			}else {
+				running = true;
+			}
+		}
 	}
 	@Override
 	public void keyReleased(KeyEvent e) {
