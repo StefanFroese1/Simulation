@@ -16,6 +16,7 @@ public class MyFrame extends JFrame{
 		this.pack();
 		this.setExtendedState(Frame.MAXIMIZED_BOTH);
 		this.setLocationRelativeTo(null);
+		this.addMouseListener(null);
 		this.setVisible(true);
 	}
 
