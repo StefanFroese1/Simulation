@@ -24,10 +24,12 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 	private int gridHight = 90;
 	private int pixelSize = 10;
 	private boolean running;
+	private boolean leftMouseDown;
 	
 	MyPanel(){
 		this.setBackground(Color.cyan);
 		running = false;
+		leftMouseDown = false;
 		slider1 = 500;
 		slider2 = 500;
 		tab = new ImageIcon("Assets/Tab.png").getImage();
@@ -57,6 +59,13 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(getMousePosition() != null && leftMouseDown) {
+			if(getMousePosition().getY() > 0 && getMousePosition().getY() < 100 && getMousePosition().getX() > 50 && getMousePosition().getX() < 950) {
+				slider1 = (int) getMousePosition().getX();
+			}else if(getMousePosition().getY() > 100 && getMousePosition().getY() < 200 && getMousePosition().getX() > 50 && getMousePosition().getX() < 950){
+				slider2 = (int) getMousePosition().getX();
+			}
+		}
 		if(running) {
 			w.SetTide(slider1/12);
 			w.SetWave(slider2/100);
@@ -71,17 +80,14 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if(e.getButton() == MouseEvent.BUTTON1) {
-			if(e.getY() > 0 && e.getY() < 100 && e.getX() > 50 && e.getX() < 950) {
-				slider1 = e.getX();
-			}else if(e.getY() > 100 && e.getY() < 200 && e.getX() > 50 && e.getX() < 950){
-				slider2 = e.getX();
-			}
+			leftMouseDown = true;
 		}
 	}
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		if(e.getButton() == MouseEvent.BUTTON1) {
+			leftMouseDown = false;
+		}
 	}
 	@Override
 	public void mouseEntered(MouseEvent e) {

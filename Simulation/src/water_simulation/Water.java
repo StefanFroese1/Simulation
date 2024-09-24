@@ -1,5 +1,4 @@
 package water_simulation;
-import java.math.*;
 
 public class Water {
 
