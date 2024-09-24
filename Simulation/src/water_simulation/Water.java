@@ -10,8 +10,8 @@ public class Water {
 		tide=30;
 		wave=3;
 		display=new int [160][90];
-		for(int i1=0;i1<160;i1++) {
-			for(int i2=0;i2>90;i2++) {
+		for(int i1=0;i1<159;i1++) {
+			for(int i2=0;i2>89;i2++) {
 				display[i1][i2]=0;
 			}
 		}
@@ -38,17 +38,17 @@ public class Water {
 		int y=(int)Math.round(sin);
 		//the do-while loop makes all the the pixels below the wave water
 		do {
-			display[160][y]=1;
+			display[159][y]=1;
 			y--;
 		}while(y>0);
 		//this do-while makes everything above the wave sky.
 		do {
-			display[160][y+1]=0;
+			display[159][y+1]=0;
 			y++;
 		}while(y>0);
 		
-		for(int i1=0;i1<159;i1++) {
-			for(int i2=0;i2>90;i2++) {
+		for(int i1=0;i1<158;i1++) {
+			for(int i2=0;i2>89;i2++) {
 				display[i1][i2]=display[i1+1][i2];
 			}
 		}
