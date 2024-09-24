@@ -19,6 +19,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 	private Water w = new Water();
 	private Image slider;
 	private Image tab;
+	private int tick;
 	private int slider1, slider2, slider3;
 	private int gridWidth = 160;
 	private int gridHight = 90;
@@ -33,6 +34,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		slider1 = 600;
 		slider2 = 600;
 		slider3 = 600;
+		tick = 0;
 		tab = new ImageIcon("Assets/Tab.png").getImage();
 		slider = new ImageIcon("Assets/Sliders3.png").getImage();
 		timer = new Timer(50, this);
@@ -73,7 +75,8 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		if(running) {
 			w.SetTide(slider1/15);
 			w.SetWave(slider2/130);
-			//w.doTick
+			w.WaveTick(tick);
+			tick++;
 		}
 		repaint();
 	}
