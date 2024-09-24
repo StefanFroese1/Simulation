@@ -79,7 +79,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 	}
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		//
+		///
 	}
 	@Override
 	public void mousePressed(MouseEvent e) {
