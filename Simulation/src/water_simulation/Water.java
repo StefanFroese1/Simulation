@@ -6,9 +6,9 @@ public class Water {
 	int [][] display;
 	
 	
-	public Water(int tideIn,int waveIn) {
-		tide=tideIn;
-		wave=waveIn;
+	public Water() {
+		tide=30;
+		wave=5;
 		display=new int [160][90];
 		for(int i1=0;i1<160;i1++) {
 			for(int i2=0;i2>90;i2++) {
@@ -32,9 +32,9 @@ public class Water {
 			
 		return 1;
 	}
-	public void WaveTick(int tick, int hight) {
+	public void WaveTick(int tick) {
 		
-		double sin=(hight*(Math.sin(tick))/5);
+		double sin=tide+(wave*(Math.sin(tick))/5);
 		int y=(int)Math.round(sin);
 		//the do-while loop makes all the the pixels below the wave water
 		do {

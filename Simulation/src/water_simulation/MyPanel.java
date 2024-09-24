@@ -16,7 +16,7 @@ import javax.swing.*;
 public class MyPanel extends JPanel implements ActionListener, MouseListener, KeyListener{
 	
 	private Timer timer;
-	private Water w = new Water(0, 0);
+	private Water w = new Water();
 	private Image slider;
 	private Image tab;
 	private int slider1, slider2;
