@@ -7,7 +7,7 @@ public class Water {
 	
 	
 	public Water() {
-		tide=40;
+		tide=30;
 		wave=3;
 		display=new int [160][90];
 		for(int i1=0;i1<160;i1++) {
