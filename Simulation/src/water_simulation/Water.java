@@ -41,7 +41,7 @@ public class Water {
 			display[160][y]=1;
 			y--;
 		}while(y>0);
-		//this do-while makes everything above the wave sky. 
+		//this do-while makes everything above the wave sky.
 		do {
 			display[160][y+1]=0;
 			y++;
