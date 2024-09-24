@@ -19,7 +19,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 	private Water w = new Water();
 	private Image slider;
 	private Image tab;
-	private int slider1, slider2;
+	private int slider1, slider2, slider3;
 	private int gridWidth = 160;
 	private int gridHight = 90;
 	private int pixelSize = 10;
@@ -30,10 +30,11 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		this.setBackground(Color.cyan);
 		running = false;
 		leftMouseDown = false;
-		slider1 = 500;
-		slider2 = 500;
+		slider1 = 600;
+		slider2 = 600;
+		slider3 = 600;
 		tab = new ImageIcon("Assets/Tab.png").getImage();
-		slider = new ImageIcon("Assets/Sliders.png").getImage();
+		slider = new ImageIcon("Assets/Sliders3.png").getImage();
 		timer = new Timer(50, this);
 		timer.start();
 	}
@@ -52,23 +53,26 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 				g2D.fillRect(i*pixelSize, i2*pixelSize, pixelSize, pixelSize);
 			}
 		}
-		g2D.drawImage(slider, 0, 0, 1000, 200, null);
-		g2D.drawImage(tab, slider1-30, 10, 60, 80, null);
-		g2D.drawImage(tab, slider2-30, 110, 60, 80, null);
+		g2D.drawImage(slider, 0, 0, 1535, 150, null);
+		g2D.drawImage(tab, slider1-15, 5, 30, 40, null);
+		g2D.drawImage(tab, slider2-15, 55, 30, 40, null);
+		g2D.drawImage(tab, slider3-15, 105, 30, 40, null);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(getMousePosition() != null && leftMouseDown) {
-			if(getMousePosition().getY() > 0 && getMousePosition().getY() < 100 && getMousePosition().getX() > 50 && getMousePosition().getX() < 950) {
+			if(getMousePosition().getY() > 0 && getMousePosition().getY() < 50 && getMousePosition().getX() > 25 && getMousePosition().getX() < 1280) {
 				slider1 = (int) getMousePosition().getX();
-			}else if(getMousePosition().getY() > 100 && getMousePosition().getY() < 200 && getMousePosition().getX() > 50 && getMousePosition().getX() < 950){
+			}else if(getMousePosition().getY() > 50 && getMousePosition().getY() < 100 && getMousePosition().getX() > 25 && getMousePosition().getX() < 1280){
 				slider2 = (int) getMousePosition().getX();
+			}else if(getMousePosition().getY() > 100 && getMousePosition().getY() < 150 && getMousePosition().getX() > 25 && getMousePosition().getX() < 1280){
+				slider3 = (int) getMousePosition().getX();
 			}
 		}
 		if(running) {
-			w.SetTide(slider1/12);
-			w.SetWave(slider2/100);
+			w.SetTide(slider1/15);
+			w.SetWave(slider2/130);
 			//w.doTick
 		}
 		repaint();
