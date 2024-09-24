@@ -45,7 +45,7 @@ public class Water {
 		do {
 			display[159][y+1]=0;
 			y++;
-		}while(y>0);
+		}while(y<90);
 		
 		for(int i1=0;i1<158;i1++) {
 			for(int i2=0;i2>89;i2++) {
