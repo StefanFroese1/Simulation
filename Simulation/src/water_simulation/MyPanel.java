@@ -57,7 +57,13 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(getMousePosition().getY() > 0 && getMousePosition().getY() < 100 && getMousePosition().getX() > 50 && getMousePosition().getX() < 950) {
+			slider1 = (int) getMousePosition().getX();
+		}else if(getMousePosition().getY() > 100 && getMousePosition().getY() < 200 && getMousePosition().getX() > 50 && getMousePosition().getX() < 950){
+			slider2 = (int) getMousePosition().getX();
+		}
 		if(running) {
+			System.out.print((int) getMousePosition().getX());
 			w.SetTide(slider1/12);
 			w.SetWave(slider2/100);
 			//w.doTick
