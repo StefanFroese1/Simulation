@@ -28,7 +28,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 	private boolean leftMouseDown;
 	
 	MyPanel(){
-		this.setBackground(Color.cyan);
+		this.setBackground(Color.gray);
 		running = false;
 		leftMouseDown = false;
 		slider1 = 600;
@@ -51,7 +51,6 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 					case 2: g2D.setColor(Color.green); break;
 					default: g2D.setColor(Color.white);
 				}
-				g2D.setColor(Color.green);
 				g2D.fillRect(i*pixelSize, i2*pixelSize, pixelSize, pixelSize);
 			}
 		}
