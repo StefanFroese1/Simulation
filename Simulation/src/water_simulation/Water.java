@@ -33,25 +33,31 @@ public class Water {
 		return display[x][y];
 	}
 	public void WaveTick(int tick) {
-		
+		int y;
 		double sin=tide+(wave*(Math.sin(tick/5)));
-		int y=(int)Math.round(sin);
+		y=(int)Math.round(sin);
+		int yChange=y;
+		/*
 		//the do-while loop makes all the the pixels below the wave water
 		do {
-			display[159][y]=1;
-			y--;
-		}while(y>0);
+			
+			display[159][yChange]=1;
+			yChange--;
+		}while(yChange>0);
+		yChange=y;
 		//this do-while makes everything above the wave sky. 
 		do {
-			display[159][y+1]=0;
-			y++;
-		}while(y<90);
-		
+			display[159][yChange+1]=0;
+			yChange++;
+		}while(yChange<88);
+		*/
 		for(int i1=0;i1<158;i1++) {
-			for(int i2=0;i2>89;i2++) {
+			for(int i2=0;i2<89;i2++) {
 				display[i1][i2]=display[i1+1][i2];
+				System.out.print(display[i1][i2]+" ");
 			}
 		}
+		System.out.println();
 	}
 	
 }
