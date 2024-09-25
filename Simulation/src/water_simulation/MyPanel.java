@@ -73,6 +73,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 			}
 		}
 		if(running) {
+			tickStep++;
 			if(tickStep >= slider3/50) {
 				tickStep = 0;
 			}
