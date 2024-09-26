@@ -41,7 +41,7 @@ public class Water {
 	}
 	public void WaveTick(int tick) {
 		int y;
-		double sin=tide+(wave*(Math.sin(tick/5)));
+		double sin=tide+(wave*(Math.sin((double)tick/5)));
 		y=(int)Math.round(sin);
 		int yChange=y;
 		
@@ -66,10 +66,12 @@ public class Water {
 		
 		
 		for (int i=0;i<159;i++) {
-			display[i]=displayOld[i+1];
+			for(int i2=0;i2<89;i2++) {
+				display[i][i2]=display[i+1][i2];
+			}
 			
 		}
-		displayOld=display; 
+		
 	}
 	
 }
