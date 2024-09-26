@@ -4,16 +4,20 @@ public class Water {
 
 	int tide, wave;
 	int [][] display;
-	
+	int [][] displayOld;
 	
 	public Water() {
 		tide=30;
 		wave=3;
 		display=new int [160][90];
+		displayOld=new int [160][90];
+		
 		for(int i1=0;i1<159;i1++) {
 			for(int i2=0;i2>89;i2++) {
 				display[i1][i2]=0;
+				displayOld[i1][i2]=0;
 			}
+			
 		}
 	}
 	public int GetWave() {
@@ -37,27 +41,32 @@ public class Water {
 		double sin=tide+(wave*(Math.sin(tick/5)));
 		y=(int)Math.round(sin);
 		int yChange=y;
-		/*
+		
+		if(yChange>0&&yChange<89) {
+			display[159][y]=1;		
+		}
 		//the do-while loop makes all the the pixels below the wave water
 		do {
-			
-			display[159][yChange]=1;
-			yChange--;
+			if(yChange>0&&yChange<89) {
+				display[159][yChange]=0;
+				yChange--;
+			}
 		}while(yChange>0);
 		yChange=y;
 		//this do-while makes everything above the wave sky. 
 		do {
-			display[159][yChange+1]=0;
-			yChange++;
-		}while(yChange<88);
-		*/
-		for(int i1=0;i1<158;i1++) {
-			for(int i2=0;i2<89;i2++) {
-				display[i1][i2]=display[i1+1][i2];
-				System.out.print(display[i1][i2]+" ");
+			if(yChange>0&&yChange<89) {
+				display[159][yChange+1]=1;
+				yChange++;
 			}
+		}while(yChange<89);
+		
+		
+		for (int i=0;i<159;i++) {
+			display[i]=displayOld[i+1];
+			
 		}
-		System.out.println();
+		displayOld=display;
 	}
 	
 }
