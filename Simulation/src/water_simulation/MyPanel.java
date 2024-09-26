@@ -17,6 +17,9 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 	
 	private Timer timer;
 	private Water w = new Water();
+	private Buildings b1 = new Buildings(10, 10, 10, 10, 100);
+	private Buildings b2 = new Buildings(10, 10, 10, 10, 100);
+	private Buildings b3 = new Buildings(10, 10, 10, 10, 100);
 	private Image slider;
 	private Image tab;
 	private int tick, tickStep;

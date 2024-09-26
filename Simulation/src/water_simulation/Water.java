@@ -26,6 +26,9 @@ public class Water {
 	public int GetTide() {
 		return tide;
 	}
+	public int ARandomMethod() {
+		return tide;
+	}
 	public void SetWave(int in) {
 		wave=in;
 	}
