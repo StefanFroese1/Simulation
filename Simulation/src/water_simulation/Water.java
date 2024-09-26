@@ -69,7 +69,7 @@ public class Water {
 			display[i]=displayOld[i+1];
 			
 		}
-		displayOld=display;
+		displayOld=display; 
 	}
 	
 }
