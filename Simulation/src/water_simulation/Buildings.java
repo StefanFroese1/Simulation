@@ -18,7 +18,7 @@ public class Buildings {
 	}
 	
 	public int getElevation() {
-		return elevation;
+		return 90-elevation;
 	}
 	
 	public int getLocation() {
@@ -31,6 +31,10 @@ public class Buildings {
 	
 	public int getHeight() {
 		return height;
+	}
+	
+	public int getDamage(int x, int y) {
+		return damage [x][y];
 	}
 	
 	public void doDamage(Water w) {

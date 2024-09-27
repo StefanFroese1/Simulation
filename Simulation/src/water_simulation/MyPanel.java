@@ -16,10 +16,8 @@ import javax.swing.*;
 public class MyPanel extends JPanel implements ActionListener, MouseListener, KeyListener{
 	
 	private Timer timer;
-	private Water w = new Water();
-	private Buildings b1 = new Buildings(10, 10, 10, 10, 100);
-	private Buildings b2 = new Buildings(10, 10, 10, 10, 100);
-	private Buildings b3 = new Buildings(10, 10, 10, 10, 100);
+	private Water w;
+	private Buildings [] b;
 	private Image slider;
 	private Image tab;
 	private int tick, tickStep;
@@ -32,6 +30,11 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 	
 	MyPanel(){
 		this.setBackground(Color.gray);
+		b = new Buildings [3];
+		b [0] = new Buildings(2, 50, 2, 14, 10);
+		b [1] = new Buildings(10, 30, 4, 6, 10);
+		b [2] = new Buildings(15, 40, 3, 10, 10);
+		w = new Water();
 		running = false;
 		leftMouseDown = false;
 		slider1 = 600;
@@ -40,7 +43,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		tick = 0;
 		tab = new ImageIcon("Assets/Tab.png").getImage();
 		slider = new ImageIcon("Assets/Sliders3.png").getImage();
-		timer = new Timer(50, this);
+		timer = new Timer(10, this);
 		timer.start();
 	}
 	public void paint(Graphics g) {
@@ -55,6 +58,19 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 					default: g2D.setColor(Color.white);
 				}
 				g2D.fillRect(i*pixelSize, i2*pixelSize, pixelSize, pixelSize);
+			}
+		}
+		for (int i=0;i<b.length;i++) {
+			if(b [i] != null) {
+				for (int ix=0;ix<b [i].getWidth();ix++) {
+					for (int iy=b [i].getHeight();iy>0;iy--) {
+						g2D.setColor(Color.gray);
+						if((b [i].getLocation() + ix) % 2 == 0 && (b [i].getElevation() + iy) % 3 != 0) {
+							g2D.setColor(Color.yellow);
+						}
+						g2D.fillRect((b [i].getLocation() + ix)*pixelSize, (b [i].getElevation() + iy)*pixelSize, pixelSize, pixelSize);
+					}
+				}
 			}
 		}
 		g2D.drawImage(slider, 0, 0, 1535, 150, null);
@@ -76,13 +92,16 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		}
 		if(running) {
 			tickStep++;
-			if(tickStep >= (1280-slider3)/50) {
+			if(tickStep >= Math.pow(1280-slider3, 0.7)/10) {
 				tickStep = 0;
 			}
 			if(tickStep == 0) {
-				w.SetTide(slider1/15);
+				w.SetTide((1280-slider1)/10);
 				w.SetWave(slider2/130);
 				w.WaveTick(tick);
+				for (int i=0;i<b.length;i++) {
+					b [i].doDamage(w);
+				}
 				tick++;
 			}
 		}
