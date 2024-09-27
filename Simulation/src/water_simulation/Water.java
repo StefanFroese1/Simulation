@@ -4,21 +4,27 @@ public class Water {
 
 	int tide, wave;
 	int [][] display;
-	int [][] displayOld;
 	
 	public Water() {
-		tide=30;
+		tide=20;
 		wave=3;
 		display=new int [160][90];
-		displayOld=new int [160][90];
 		
 		for(int i1=0;i1<159;i1++) {
 			for(int i2=0;i2>89;i2++) {
 				display[i1][i2]=0;
-				displayOld[i1][i2]=0;
 			}
 			
 		}
+		
+		for (int i1=0;i1<159;i1++) {
+			for(int i2=0;i2<90;i2++) {
+				if(3*(Math.pow(i2, 2))-5000<-(Math.pow(i1, 2))) {
+					display[i1][(89-i2)]=2;
+				} 
+			}	
+		}
+		System.out.print(Math.pow(4,2));
 	}
 	public int GetWave() {
 		return wave;
@@ -64,14 +70,12 @@ public class Water {
 			}
 		}while(yChange<89);
 		
-		
 		for (int i=0;i<159;i++) {
-			for(int i2=0;i2<89;i2++) {
-				display[i][i2]=display[i+1][i2];
-			}
-			
+			for(int i2=0;i2<90;i2++) {
+				if(display[i][i2]!=2) {
+					display[i][i2]=display[i+1][i2];
+				}
+			}	
 		}
-		
 	}
-	
 }
