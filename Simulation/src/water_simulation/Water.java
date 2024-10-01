@@ -32,7 +32,7 @@ public class Water {
 		return tide;
 	}
 	public void SetPixel(int x, int y,int t ) {
-		display[x][y]=t;
+		display[x][y]=t; 
 	}
 	public void SetWave(int in) {
 		wave=in;
