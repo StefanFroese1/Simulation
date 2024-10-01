@@ -24,7 +24,6 @@ public class Water {
 				} 
 			}	
 		}
-		System.out.print(Math.pow(4,2));
 	}
 	public int GetWave() {
 		return wave;
@@ -32,8 +31,8 @@ public class Water {
 	public int GetTide() {
 		return tide;
 	}
-	public int ARandomMethod() {
-		return tide;
+	public void SetPixel(int x, int y,int t ) {
+		display[x][y]=t;
 	}
 	public void SetWave(int in) {
 		wave=in;
@@ -72,10 +71,10 @@ public class Water {
 		
 		for (int i=0;i<159;i++) {
 			for(int i2=0;i2<90;i2++) {
-				if(display[i][i2]!=2) {
+				if(display[i][i2]==0||display[i][i2]==1) {
 					display[i][i2]=display[i+1][i2];
 				}
 			}	
 		}
-	}
+	}	
 }
