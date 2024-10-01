@@ -31,9 +31,10 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 	MyPanel(){
 		this.setBackground(Color.gray);
 		b = new Buildings [3];
-		b [0] = new Buildings(2, 50, 2, 14, 10);
-		b [1] = new Buildings(10, 30, 4, 6, 10);
-		b [2] = new Buildings(15, 40, 3, 10, 10);
+		// x, y, x, y, s
+		b [0] = new Buildings(3, 38, 7, 28, 30);
+		b [1] = new Buildings(17, 35, 9, 16, 20);
+		b [2] = new Buildings(35, 29, 7, 7, 10);
 		w = new Water();
 		running = false;
 		leftMouseDown = false;
