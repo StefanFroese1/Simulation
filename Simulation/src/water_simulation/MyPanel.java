@@ -103,7 +103,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 				w.SetWave(slider2/130);
 				w.WaveTick(tick);
 				for (int i=0;i<b.length;i++) {
-					b [i].doDamage(w);
+					w = b [i].doDamage(w);
 				}
 				tick++;
 			}
