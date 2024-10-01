@@ -65,10 +65,13 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 				for (int ix=0;ix<b [i].getWidth();ix++) {
 					for (int iy=b [i].getHeight();iy>0;iy--) {
 						g2D.setColor(Color.gray);
-						if((b [i].getLocation() + ix) % 2 == 0 && (b [i].getElevation() + iy) % 3 != 0) {
+						if((b [i].getLocation() + ix) % 2 == 0 && (90 - (b [i].getElevation() + iy)) % 3 != 0) {
 							g2D.setColor(Color.yellow);
 						}
-						g2D.fillRect((b [i].getLocation() + ix)*pixelSize, (b [i].getElevation() + iy)*pixelSize, pixelSize, pixelSize);
+						//if(b [i].getDamage(ix, iy)) {
+							
+						//}
+						g2D.fillRect((b [i].getLocation() + ix)*pixelSize, (90 - (b [i].getElevation() + iy))*pixelSize, pixelSize, pixelSize);
 					}
 				}
 			}
