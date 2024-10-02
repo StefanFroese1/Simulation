@@ -53,24 +53,31 @@ public class Water {
 		if(yChange>0&&yChange<89) {
 			display[159][y]=1;		
 		}
-		//PROBLEM SOMEWHERE HERE ↓
 		//the do-while loop makes all the the pixels below the wave water
 		do {
 			
 			if(yChange>0&&yChange<89) {
 				display[159][yChange]=0;
-				yChange--;
 			}
+			yChange--;
 		}while(yChange>0);
 		yChange=y;
 		//this do-while makes everything above the wave sky. 
 		do {
 			if(yChange>0&&yChange<89) {
-				display[159][yChange+1]=1;
-				yChange++;
+				display[159][yChange+1]=1;	
 			}
+			yChange++;
 		}while(yChange<89);
-		//AND END HERE ↑
+		
+		for (int i=0;i<159;i++) {
+			for(int i2=0;i2<86;i2++) {
+				if(display[i][i2+3]==0&&display[i][i2]==1) {
+					display[i][i2]=0;
+					display[i][i2+3]=1;
+				}
+			}	
+		}
 		
 		for (int i=0;i<159;i++) {
 			for(int i2=0;i2<90;i2++) {
