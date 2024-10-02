@@ -8,7 +8,7 @@ public class Buildings {
 	private int location;
 	private int strength;
 	private int damage [][];
-	// give numbers in GUI pixels.
+	// give numbers in GUI pixels..
 	public Buildings(int x, int y, int x2, int y2, int s) {
 		location=x;
 		elevation=y;
