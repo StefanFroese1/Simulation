@@ -47,7 +47,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		tick = 0;
 		tab = new ImageIcon("Assets/Tab.png").getImage();
 		slider = new ImageIcon("Assets/Sliders3.png").getImage();
-		timer = new Timer(10, this);
+		timer = new Timer(5, this);
 		timer.start();
 	}
 	public void paint(Graphics g) {
@@ -106,6 +106,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 				w.SetWave(slider2/130);
 				w.WaveTick(tick);
 				for (int i=0;i<b.length;i++) {
+					b [i].doGravity();
 					w = b [i].doDamage(w);
 				}
 				tick++;

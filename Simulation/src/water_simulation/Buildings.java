@@ -43,6 +43,26 @@ public class Buildings {
 		return damage [x][y];
 	}
 	
+	public void doGravity() {
+		boolean layerGone;
+		for (int i=0;i<height;i++) {
+			layerGone = true;
+			for (int i2=0;i2<width;i2++) {
+				if(damage [i2][i] > 0) {
+					layerGone = false;
+				}
+			}
+			if(layerGone) {
+				for (int i3=0;i3<width;i3++) {
+					for (int i4=i;i4<height-1;i4++) {
+						damage [i3][i4] = damage [i3][i4+1];
+					}
+					damage [i3][height-1] = 0;
+				}
+			}
+		}
+	}
+	
 	public Water doDamage(Water w) {
 		for (int i=location;i<location+width;i++) {
 			for (int i2=elevation;i2<elevation+height;i2++) {
