@@ -62,7 +62,7 @@ public class Water {
 			yChange--;
 		}while(yChange>0);
 		yChange=y;
-		//this do-while makes everything above the wave sky. 
+		//this do-while makes everything above the wave sky.
 		do {
 			if(yChange>0&&yChange<89) {
 				display[159][yChange+1]=1;	
