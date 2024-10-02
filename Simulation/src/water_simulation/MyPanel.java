@@ -31,6 +31,9 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 	MyPanel(){
 		this.setBackground(Color.gray);
 		b = new Buildings [3];
+		b [0] = new Buildings(1, 1, 1, 1, 10);
+		b [1] = new Buildings(20, 49, 40, 40, 10);
+		b [2] = new Buildings(1, 1, 1, 1, 10);
 		// x, y, x, y, s
 		b [0] = new Buildings(3, 38, 7, 28, 30);
 		b [1] = new Buildings(17, 35, 9, 16, 20);
@@ -64,15 +67,14 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		for (int i=0;i<b.length;i++) {
 			if(b [i] != null) {
 				for (int ix=0;ix<b [i].getWidth();ix++) {
-					for (int iy=b [i].getHeight();iy>0;iy--) {
+					for (int iy=b [i].getHeight()-1;iy>-1;iy--) {
 						g2D.setColor(Color.gray);
 						if((b [i].getLocation() + ix) % 2 == 0 && (90 - (b [i].getElevation() + iy)) % 3 != 0) {
 							g2D.setColor(Color.yellow);
 						}
-						//if(b [i].getDamage(ix, iy)) {
-							
-						//}
-						g2D.fillRect((b [i].getLocation() + ix)*pixelSize, (90 - (b [i].getElevation() + iy))*pixelSize, pixelSize, pixelSize);
+						if(b [i].getDamage(ix, iy) > 0) {
+							g2D.fillRect((b [i].getLocation() + ix)*pixelSize, (90 - (b [i].getElevation() + iy))*pixelSize, pixelSize, pixelSize);
+						}
 					}
 				}
 			}
