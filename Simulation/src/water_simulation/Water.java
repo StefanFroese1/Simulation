@@ -71,10 +71,10 @@ public class Water {
 		}while(yChange<89);
 		
 		for (int i=0;i<159;i++) {
-			for(int i2=0;i2<86;i2++) {
-				if(display[i][i2+3]==0&&display[i][i2]==1) {
+			for(int i2=0;i2<88;i2++) {
+				if(display[i][i2+1]==0&&display[i][i2]==1) {
 					display[i][i2]=0;
-					display[i][i2+3]=1;
+					display[i][i2+1]=1;
 				}
 			}	
 		}
