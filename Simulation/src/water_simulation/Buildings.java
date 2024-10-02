@@ -16,6 +16,11 @@ public class Buildings {
 		height=y2;
 		strength=s;
 		damage = new int [x2][y2];
+		for(int i=0;i<x2;i++) {
+			for(int i2=0;i2<y2;i2++) {
+				damage [i][i2] = s;
+			}
+		}
 	}
 	
 	public int getElevation() {
@@ -41,11 +46,10 @@ public class Buildings {
 	public Water doDamage(Water w) {
 		for (int i=location;i<location+width;i++) {
 			for (int i2=elevation;i2<elevation+height;i2++) {
-				if(w.GetPixel(i, i2)==1) {
-					damage [i-location][i2-elevation] ++;
-					if(damage [i-location][i2-elevation] > strength) {
-						damage [i-location][i2-elevation] = 1001;
-						w.SetPixel(i, i2, 0);
+				if(w.GetPixel(i, 90 - i2)==1) {
+					damage [i-location][i2-elevation] --;
+					if(damage [i-location][i2-elevation] > 0) {
+						w.SetPixel(i, 90 - i2, 0);
 					}
 				}
 			}
