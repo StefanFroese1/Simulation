@@ -53,8 +53,10 @@ public class Water {
 		if(yChange>0&&yChange<89) {
 			display[159][y]=1;		
 		}
+		//PROBLEM SOMEWHERE HERE ↓
 		//the do-while loop makes all the the pixels below the wave water
 		do {
+			
 			if(yChange>0&&yChange<89) {
 				display[159][yChange]=0;
 				yChange--;
@@ -68,6 +70,7 @@ public class Water {
 				yChange++;
 			}
 		}while(yChange<89);
+		//AND END HERE ↑
 		
 		for (int i=0;i<159;i++) {
 			for(int i2=0;i2<90;i2++) {
