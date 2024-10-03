@@ -10,7 +10,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class MyPanel extends JPanel implements ActionListener, MouseListener, KeyListener {
@@ -20,6 +24,9 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 	private Buildings[] b;
 	private Image slider;
 	private Image tab;
+	private File text;
+	private BufferedImage img;
+	private BufferedImage[] textChars = new BufferedImage[11];
 	private int tick, tickStep;
 	private int slider1, slider2, slider3;
 	private int gridWidth = 160;
@@ -42,9 +49,19 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		slider2 = 600;
 		slider3 = 600;
 		tick = 0;
+		text = new File("Assets/Text.png");
+		img = null;
 		tab = new ImageIcon("Assets/Tab.png").getImage();
 		slider = new ImageIcon("Assets/Sliders3.png").getImage();
 		timer = new Timer(5, this);
+		try {
+			img = ImageIO.read(text);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		for(int i=0;i<11;i++) {
+			textChars [i] = img.getSubimage(i*7, 0, 7, 10);
+		}
 		timer.start();
 	}
 
@@ -89,6 +106,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		g2D.drawImage(tab, slider1 - 15, 5, 30, 40, null);
 		g2D.drawImage(tab, slider2 - 15, 55, 30, 40, null);
 		g2D.drawImage(tab, slider3 - 15, 105, 30, 40, null);
+		g2D.drawImage(textChars[10], 150, 1000, 35, 50, null);
 	}
 
 	@Override
