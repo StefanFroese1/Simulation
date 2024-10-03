@@ -106,7 +106,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		g2D.drawImage(tab, slider1 - 15, 5, 30, 40, null);
 		g2D.drawImage(tab, slider2 - 15, 55, 30, 40, null);
 		g2D.drawImage(tab, slider3 - 15, 105, 30, 40, null);
-		g2D.drawImage(textChars[10], 150, 1000, 35, 50, null);
+		g2D.drawImage(textChars[9], 150, 1000, 35, 50, null);
 	}
 
 	@Override
