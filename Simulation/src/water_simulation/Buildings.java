@@ -77,5 +77,16 @@ public class Buildings {
 		}
 		return w;
 	}
-
+	public int GetDamage() {
+		int broken=0;
+		for (int i1 = 0; i1 < width; i1++) {
+			for (int i2 = 0; i2 < height - 1; i2++) {
+				if(damage[i1][i2]==0) {
+					broken++;
+				}
+			}
+		}
+		return(broken);
+	}
+	
 }
