@@ -88,5 +88,19 @@ public class Buildings {
 		}
 		return(broken);
 	}
+	public void Reset(int x, int y, int x2, int y2, int s) {
+		
+		location = x;
+		elevation = y;
+		width = x2;
+		height = y2;
+		strength = s;
+		damage = new int[x2][y2];
+		for (int i = 0; i < x2; i++) {
+				for (int i2 = 0; i2 < y2; i2++) {
+				damage[i][i2] = s;
+			}
+		}
+	}
 	
 }
