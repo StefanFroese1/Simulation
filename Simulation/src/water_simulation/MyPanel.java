@@ -32,6 +32,8 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 	private int gridWidth = 160;
 	private int gridHight = 90;
 	private int pixelSize = 10;
+	private int price, digit;
+	private String testString;
 	private boolean running;
 	private boolean leftMouseDown;
 
@@ -50,10 +52,12 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		slider3 = 600;
 		tick = 0;
 		text = new File("Assets/Text.png");
-		img = null;
 		tab = new ImageIcon("Assets/Tab.png").getImage();
 		slider = new ImageIcon("Assets/Sliders3.png").getImage();
 		timer = new Timer(5, this);
+		img = null;
+		price = 0;
+		digit = 0;
 		try {
 			img = ImageIO.read(text);
 		} catch (IOException e) {
@@ -86,8 +90,10 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 				g2D.fillRect(i * pixelSize, i2 * pixelSize, pixelSize, pixelSize);
 			}
 		}
+		price = 0;
 		for (int i = 0; i < b.length; i++) {
 			if (b[i] != null) {
+				price += b [i].GetDamage();
 				for (int ix = 0; ix < b[i].getWidth(); ix++) {
 					for (int iy = b[i].getHeight() - 1; iy > -1; iy--) {
 						g2D.setColor(Color.gray);
@@ -106,7 +112,14 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		g2D.drawImage(tab, slider1 - 15, 5, 30, 40, null);
 		g2D.drawImage(tab, slider2 - 15, 55, 30, 40, null);
 		g2D.drawImage(tab, slider3 - 15, 105, 30, 40, null);
-		g2D.drawImage(textChars[9], 150, 1000, 35, 50, null);
+		g2D.drawImage(textChars[10], 0, 0, 70, 100, null);
+		for(int i=0;i<String.valueOf(price).length();i++) {
+			//digit = (int) (price - price % Math.pow(10, i));
+			//if(String.valueOf(price).length()<i-2) {
+				digit = Integer.parseUnsignedInt(String.valueOf(price).substring(i, i+1));
+				g2D.drawImage(textChars[digit], i*70, 0, 70, 100, null);
+			//}
+		}
 	}
 
 	@Override
