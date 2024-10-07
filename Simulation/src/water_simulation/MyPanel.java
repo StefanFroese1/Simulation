@@ -115,8 +115,8 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		g2D.drawImage(textChars[10], 0, 0, 70, 100, null);
 		for(int i=0;i<10;i++) {
 			//digit = (int) (price - price % Math.pow(10, i));
-			if(String.valueOf(price).length()<i) {
-				digit = Integer.parseUnsignedInt(String.valueOf(price).substring(i, i+2));
+			if(String.valueOf(price).length()<i-2) {
+				digit = Integer.parseUnsignedInt(String.valueOf(price).substring(i, i+1));
 				g2D.drawImage(textChars[digit], i*70, 0, 70, 100, null);
 			}
 		}
