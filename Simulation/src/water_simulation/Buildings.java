@@ -81,7 +81,7 @@ public class Buildings {
 		int broken=0;
 		for (int i1 = 0; i1 < width; i1++) {
 			for (int i2 = 0; i2 < height - 1; i2++) {
-				if(damage[i1][i2]==0) {
+				if(damage[i1][i2]<1) {
 					broken++;
 				}
 			}
