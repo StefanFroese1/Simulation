@@ -51,9 +51,9 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		slider2 = 600;
 		slider3 = 600;
 		tick = 0;
-		text = new File("Assets/Text.png");
+		text = new File("Assets/Text4.png");
 		tab = new ImageIcon("Assets/Tab.png").getImage();
-		slider = new ImageIcon("Assets/Sliders3.png").getImage();
+		slider = new ImageIcon("Assets/Sliders6.png").getImage();
 		timer = new Timer(5, this);
 		img = null;
 		price = 0;
@@ -64,7 +64,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 			e.printStackTrace();
 		}
 		for(int i=0;i<11;i++) {
-			textChars [i] = img.getSubimage(i*7, 0, 7, 10);
+			textChars [i] = img.getSubimage(i*4, 0, 4, 7);
 		}
 		timer.start();
 	}
@@ -109,18 +109,18 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 			}
 		}
 		//
-		g2D.drawImage(slider, 0, 0, 1535, 150, null);
+		g2D.drawImage(slider, 0, 0, 1535, 200, null);
 		g2D.drawImage(tab, slider1 - 15, 5, 30, 40, null);
 		g2D.drawImage(tab, slider2 - 15, 55, 30, 40, null);
 		g2D.drawImage(tab, slider3 - 15, 105, 30, 40, null);
-		g2D.drawImage(textChars[10], 0, 0, 70, 100, null);
+		g2D.drawImage(textChars[10], 1100, 160, 25, 35, null);
 		for(int i=0;i<String.valueOf(price).length();i++) {
 			digit = Integer.parseUnsignedInt(String.valueOf(price).substring(i, i+1));
-			g2D.drawImage(textChars[digit], i*70+70, 0, 70, 100, null);
+			g2D.drawImage(textChars[digit], i*25+1125, 160, 25, 35, null);
 		}
 		if(price != 0) {
 			for(int i=0;i<6;i++) {
-				g2D.drawImage(textChars[0], (i+1+String.valueOf(price).length())*70, 0, 70, 100, null);
+				g2D.drawImage(textChars[0], (i+1+String.valueOf(price).length())*25+1100, 160, 25, 35, null);
 			}
 		}
 	}
