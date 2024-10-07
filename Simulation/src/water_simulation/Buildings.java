@@ -86,7 +86,7 @@ public class Buildings {
 				}
 			}
 		}
-		return(broken);
+		return(broken); 
 	}
 	public void Reset() {
 		
