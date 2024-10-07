@@ -129,23 +129,23 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 	public void actionPerformed(ActionEvent e) {
 		if (getMousePosition() != null && leftMouseDown) {
 			if (getMousePosition().getY() > 0 && getMousePosition().getY() < 50 && getMousePosition().getX() > 25
-					&& getMousePosition().getX() < 1280) {
+					&& getMousePosition().getX() < 1220) {
 				slider1 = (int) getMousePosition().getX();
 			} else if (getMousePosition().getY() > 50 && getMousePosition().getY() < 100
-					&& getMousePosition().getX() > 25 && getMousePosition().getX() < 1280) {
+					&& getMousePosition().getX() > 25 && getMousePosition().getX() < 1220) {
 				slider2 = (int) getMousePosition().getX();
 			} else if (getMousePosition().getY() > 100 && getMousePosition().getY() < 150
-					&& getMousePosition().getX() > 25 && getMousePosition().getX() < 1280) {
+					&& getMousePosition().getX() > 25 && getMousePosition().getX() < 1220) {
 				slider3 = (int) getMousePosition().getX();
 			}
 		}
 		if (running) {
 			tickStep++;
-			if (tickStep >= Math.pow(1280 - slider3, 0.7) / 10) {
+			if (tickStep >= Math.pow(1220 - slider3, 0.7) / 10) {
 				tickStep = 0;
 			}
 			if (tickStep == 0) {
-				w.SetTide((1280 - slider1) / 10);
+				w.SetTide((1220 - slider1) / 10);
 				w.SetWave(slider2 / 130);
 				w.WaveTick(tick);
 				for (int i = 0; i < b.length; i++) {
