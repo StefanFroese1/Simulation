@@ -78,7 +78,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		// draw grid of pixels
 		for (int i = 0; i < gridWidth; i++) {
 			for (int i2 = gridHight - 1; i2 > 0; i2--) {
-				switch (w.GetPixel(i, i2)) {
+				switch (w.getPixel(i, i2)) {
 				case 0:
 					g2D.setColor(Color.cyan);
 					break;
@@ -98,7 +98,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		// draw buildings
 		for (int i = 0; i < b.length; i++) {
 			if (b[i] != null) {
-				price += b[i].GetDamage();
+				price += b[i].getBroken();
 				// draw one building
 				for (int ix = 0; ix < b[i].getWidth(); ix++) {
 					for (int iy = b[i].getHeight() - 1; iy > -1; iy--) {
@@ -157,9 +157,9 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 			}
 			if (tickStep == 0) {
 				// do water physics
-				w.SetTide((1220 - slider1) / 10);
-				w.SetWave(slider2 / 130);
-				w.WaveTick(tick);
+				w.setTide((1220 - slider1) / 10);
+				w.setWave(slider2 / 130);
+				w.waveTick(tick);
 				for (int i = 0; i < b.length; i++) {
 					b[i].doGravity();
 					w = b[i].doDamage(w);
@@ -223,7 +223,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		// detect if r is down to reset
 		if (e.getKeyCode() == 82) {
 			for (int i = 0; i < b.length; i++) {
-				b[i].Reset();
+				b[i].reset();
 			}
 		}
 	}
