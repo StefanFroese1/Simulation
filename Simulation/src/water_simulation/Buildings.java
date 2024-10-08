@@ -9,7 +9,7 @@ public class Buildings {
 	private int strength;
 	private int damage[][];
 
-	// give numbers in GUI pixels..
+	//
 	public Buildings(int x, int y, int x2, int y2, int s) {
 		location = x;
 		elevation = y;
@@ -17,33 +17,40 @@ public class Buildings {
 		height = y2;
 		strength = s;
 		damage = new int[x2][y2];
-		for (int i = 0; i < x2; i++) {
+		// these loops set the strength of the building
+		for (int i1 = 0; i1 < x2; i1++) {
 			for (int i2 = 0; i2 < y2; i2++) {
-				damage[i][i2] = s;
+				damage[i1][i2] = s;
 			}
 		}
 	}
 
+	// this returns how high the building is
 	public int getElevation() {
 		return elevation;
 	}
 
+	// this returns the distance from the left
 	public int getLocation() {
 		return location;
 	}
 
+	// this returns the width of the building
 	public int getWidth() {
 		return width;
 	}
 
+	// this returns the height of the building
 	public int getHeight() {
 		return height;
 	}
 
+	// this returns the specified pixels damage
 	public int getDamage(int x, int y) {
 		return damage[x][y];
 	}
 
+	// this moves floating layers of building down until it touches something
 	public void doGravity() {
 		boolean layerGone;
 		for (int i = 0; i < height; i++) {
@@ -64,38 +71,44 @@ public class Buildings {
 		}
 	}
 
+	// this calculates the damage to the building, ten water pixels to destroy a
+	// building pixel
 	public Water doDamage(Water w) {
 		for (int i = location; i < location + width; i++) {
 			for (int i2 = elevation; i2 < elevation + height; i2++) {
-				if (w.GetPixel(i, 90 - i2) == 1) {
+				if (w.getPixel(i, 90 - i2) == 1) {
 					damage[i - location][i2 - elevation]--;
 					if (damage[i - location][i2 - elevation] > 0) {
-						w.SetPixel(i, 90 - i2, 0);
+						w.setPixel(i, 90 - i2, 0);
 					}
 				}
 			}
 		}
 		return w;
 	}
-	public int GetDamage() {
-		int broken=0;
+
+	// this returns the number of broken buildings
+	public int getBroken() {
+		int broken = 0;
 		for (int i1 = 0; i1 < width; i1++) {
 			for (int i2 = 0; i2 < height - 1; i2++) {
-				if(damage[i1][i2]<1) {
+				if (damage[i1][i2] < 1) {
 					broken++;
 				}
 			}
 		}
-		return(broken);
+		return (broken);
 	}
-	public void Reset() {
-		
+
+	// this resets the buildings
+	public void reset() {
+
 		damage = new int[width][height];
 		for (int i = 0; i < width; i++) {
-				for (int i2 = 0; i2 < height; i2++) {
+			for (int i2 = 0; i2 < height; i2++) {
 				damage[i][i2] = strength;
 			}
 		}
 	}
-	
+
 }
