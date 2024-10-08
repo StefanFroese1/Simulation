@@ -8,6 +8,7 @@ public class MyFrame extends JFrame {
 	MyPanel panel;
 
 	MyFrame() {
+		// create a panel
 		panel = new MyPanel();
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
