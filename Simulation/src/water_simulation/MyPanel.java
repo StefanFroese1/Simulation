@@ -41,18 +41,18 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		// create building array
 		// xlocation ylocation xsize ysize strength
 		b = new Buildings[3];
-		b[0] = new Buildings(3, 42, 7, 31, 30);
+		b[0] = new Buildings(3, 42, 7, 31, 20);
 		b[1] = new Buildings(21, 39, 9, 19, 20);
-		b[2] = new Buildings(45, 30, 7, 7, 10);
+		b[2] = new Buildings(45, 30, 7, 7, 20);
 		// object constructor
 		w = new Water();
 		timer = new Timer(5, this);
 		// variable constructor
 		running = false;
 		leftMouseDown = false;
-		slider1 = 600;
-		slider2 = 600;
-		slider3 = 600;
+		slider1 = 550;
+		slider2 = 300;
+		slider3 = 800;
 		tick = 0;
 		price = 0;
 		digit = 0;
@@ -158,7 +158,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 			if (tickStep == 0) {
 				// do water physics
 				w.setTide((1220 - slider1) / 10);
-				w.setWave(slider2 / 130);
+				w.setWave(slider2 / 50);
 				w.waveTick(tick);
 				for (int i = 0; i < b.length; i++) {
 					b[i].doGravity();
