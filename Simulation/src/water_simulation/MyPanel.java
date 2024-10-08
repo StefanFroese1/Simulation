@@ -71,7 +71,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 		}
 		timer.start();
 	}
-
+	// draws everything on the panel
 	public void paint(Graphics g) {
 		super.paint(g);
 		Graphics2D g2D = (Graphics2D) g;
@@ -134,6 +134,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 	}
 
 	@Override
+	//method activates every 5ms, controls most logic
 	public void actionPerformed(ActionEvent e) {
 		// slider hitboxes
 		if (getMousePosition() != null && leftMouseDown) {
@@ -209,6 +210,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener, Ke
 	}
 
 	@Override
+	// detects any key inputs
 	public void keyPressed(KeyEvent e) {
 		// detect if space is down
 		if (e.getKeyCode() == 32) {
